@@ -22,4 +22,5 @@ module Popatl
       g.orm             :active_record
       g.template_engine :erb
     end
+  end
 end
