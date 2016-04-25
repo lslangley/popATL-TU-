@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :projects
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
+  match 'projects/:id/toggle_completed', to: 'projects#toggle_completed', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
