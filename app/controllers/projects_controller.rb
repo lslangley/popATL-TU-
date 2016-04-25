@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :toggle_completed]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :toggle_completed, :signed_in_user]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Todo.order(created_at: :desc)
+    @projects = current_user.projects.order(created_at: :desc)
   end
 
   # GET /projects/1
@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @project.user = current_user
 
     respond_to do |format|
       if @project.save
