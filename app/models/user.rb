@@ -36,6 +36,14 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
+
+  def admin
+    if current_user.admin?
+
+    end
+    # if current_user.try(:admin?)
+    # # do something
+    # end
+    #this may be needed if we make the table visible to the public
   end
-class User < ActiveRecord::Base
 end

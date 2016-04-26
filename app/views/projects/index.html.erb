@@ -4,6 +4,10 @@
     New Project
   <% end %>
   <h1>Crowdsourced Projects Wishlist</h1>
+  <%= content_tag_for(:tr, @users) do |user| %>
+  <h3>"Welcome, " @users.first_name " !" </h3>
+  <% end %>
+  <h3>Welcome, <%= current_user.first_name -%>!</h3>
 </div>
 
 <div class="table-responsive projects">
@@ -25,7 +29,7 @@
       <%= content_tag_for(:tr, @projects) do |project| %>
             <td><%= project.title %></td>
             <td><%= project.description %></td>
-            <td><%= project.inspiration_url %></td>
+            <td> <%=link_to project.inspiration_url, project.inspiration_url %></td>
             <td><%= project.proposed_location %></td>
             <td><%= project.proposed_date %></td>
             <td><%= link_to 'Show', project %></td>
