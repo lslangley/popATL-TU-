@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
 
   has_many :projects, dependent: :destroy
@@ -35,5 +36,6 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
-endclass User < ActiveRecord::Base
+  end
+class User < ActiveRecord::Base
 end

@@ -30,16 +30,7 @@
             <td><%= project.proposed_date %></td>
             <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-         <td>
-          <%= link_to("/projects/#{project.id}/toggle_completed") do %>
-          <% if project.completed %>
-            <span class="glyphicon glyphicon-ok"></span>
-          <% else %>
-            <span class="glyphicon glyphicon-unchecked"></span>
-          <% end %>
-         <% end %>
-        </td>
+        <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

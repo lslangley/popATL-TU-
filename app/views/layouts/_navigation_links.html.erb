@@ -1,5 +1,5 @@
 <% if signed_in? %>
-  <li><%= link_to 'Projects', projectss_path %></li>
+  <li><%= link_to 'Projects', projects_path %></li>
   <li><%= link_to @current_user, user_path(@current_user) %></li>
   <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
 <% else %>

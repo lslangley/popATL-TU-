@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :toggle_completed, :signed_in_user]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :signed_in_user]
 
   # GET /projects
   # GET /projects.json
@@ -62,17 +62,17 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def toggle_completed
-    @project.completed = !@project.completed
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to projects_path }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        # show some error message
-      end
-    end
-  end
+  # def toggle_completed
+  #   @project.completed = !@project.completed
+  #   respond_to do |format|
+  #     if @project.save
+  #       format.html { redirect_to projects_path }
+  #       format.json { render :show, status: :ok, location: @project }
+  #     else
+  #       # show some error message
+  #     end
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

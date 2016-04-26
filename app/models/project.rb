@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   private
 
   def default_values
-    self.completed ||= false
+    #self.completed ||= false
     nil
   end
 end
