@@ -37,8 +37,14 @@ main {
 
 footer {
   text-align: center;
-  margin-bottom: 0px auto;
+  position:
+    fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  padding: 1rem;
   color: #0FA8A6;
+  background-color: white;
 
 }
 
