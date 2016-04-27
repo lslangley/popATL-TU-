@@ -18,6 +18,7 @@
             <th>Show</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>Admin?</th>
       </tr>
     </thead>
 
@@ -29,8 +30,17 @@
             <td><%= user.password_digest %></td>
             <td><%= user.remember_token %></td>
             <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+            <%= link_to("/users/#{user.id}/admin") do %>
+            <% if user.admin %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-unchecked"></span>
+          <% end %>
+         <% end %>
+        </td>
       <% end %>
     </tbody>
   </table>

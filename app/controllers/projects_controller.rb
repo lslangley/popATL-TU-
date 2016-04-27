@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :signed_in_user]
+  before_action :signed_in_user
+  before_action :set_todo, only: [:toggle_completed, :show, :edit, :update, :destroy]
+  before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -80,6 +82,10 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def verify_correct_user
+       @todo = current_user.todos.find_by(id: params[:id])
+       redirect_to root_url, notice: 'Access Denied!' if @todo.nil?
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :description, :inspiration_url, :proposed_location, :proposed_date)

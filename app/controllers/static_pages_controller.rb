@@ -5,4 +5,9 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  # def create
+  #   @listing = Listing.new(params[:listing])
+  #   Twitter.update(@listing.tweet)
+  # end
 end

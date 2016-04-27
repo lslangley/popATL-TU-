@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :is_admin]
+   before_action :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
+   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
+
 
   # GET /users
   # GET /users.json
@@ -62,13 +64,28 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def admin
+    @user.admin = !@user.admin
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to project_path }
+        format.json { render :show, status: :ok, location: @user }
+      else
+      # show some error message
+    end
+  end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
+
+      def verify_correct_user
+       user = User.find_by(id: params[:id])
+       redirect_to root_url, notice: 'Access Denied!' unless current_user?(user)
+     end
 
     # def user_params
     #     if current_user.is_admin?
@@ -81,7 +98,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name,
                              :last_name,
-                             :is_admin,
+                             #:is_admin,
                              :email,
                              :password,
                              :password_confirmation)
