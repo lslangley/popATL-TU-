@@ -14,6 +14,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def is_admin?
+
+  end
+
   # set the current_user from the remember_token cookie
   def current_user=(user)
     @current_user = user

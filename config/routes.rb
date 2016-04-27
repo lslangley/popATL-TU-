@@ -6,11 +6,12 @@ resources :sessions, only:[:new, :create, :destroy]
   resources :projects
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
-  match 'projects/:id/toggle_completed', to: 'projects#toggle_completed', via: 'get'
+  #match 'projects/:id/admin', to: 'projects#admin', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/gallery',  to: 'gallery#index',            via: 'get'
+  match 'users/:admin/is_admin', to: 'users#is_admin', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

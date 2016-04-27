@@ -37,13 +37,12 @@ class User < ActiveRecord::Base
     email
   end
 
-  def admin
-    if current_user.admin?
-
-    end
+  def default_values
+    self.completed ||= false
+    nil                           # required so that TX will not rollback!!!
+  end
     # if current_user.try(:admin?)
     # # do something
     # end
     #this may be needed if we make the table visible to the public
-  end
 end
