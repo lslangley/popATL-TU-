@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_path, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_path, notice: 'Project was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -82,10 +82,10 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
-    def verify_correct_user
-       @todo = current_user.todos.find_by(id: params[:id])
-       redirect_to root_url, notice: 'Access Denied!' if @todo.nil?
-    end
+     def verify_correct_user
+       @project = current_user.project.find_by(id: params[:id])
+       redirect_to root_url, notice: 'Access Denied!' if @project.nil?
+     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :description, :inspiration_url, :proposed_location, :proposed_date)

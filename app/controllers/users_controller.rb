@@ -98,7 +98,7 @@ end
     def user_params
       params.require(:user).permit(:first_name,
                              :last_name,
-                             #:is_admin,
+                             :is_admin,
                              :email,
                              :password,
                              :password_confirmation)

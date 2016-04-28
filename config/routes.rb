@@ -10,8 +10,9 @@ resources :sessions, only:[:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/gallery',  to: 'gallery#index',            via: 'get'
+  match '/map',  to: 'static_pages#map',            via: 'get'
   match 'users/:admin/is_admin', to: 'users#is_admin', via: 'get'
+  match '/profile',  to: 'users#edit',            via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
