@@ -1,5 +1,5 @@
 # popATL Site
-<www.popatl.co>
+www.popatl.co
 
 ##Description
 This is a rails app using authentication and crud for users and a projects lists. 
