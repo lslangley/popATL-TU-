@@ -2,7 +2,7 @@
 ##You can access the site from
 
 1. www.popatl.co
-2. and, www.pure-cove-29158.herokuapp.com
+2. And, www.pure-cove-29158.herokuapp.com
 
 ##Description
 This is a rails app using authentication and crud for users and a projects lists. 
@@ -32,6 +32,8 @@ The site uses a mapbox map to host past projects. For more inspirational interac
 
 ###DB Mockup
 ![alt text] (https://goo.gl/srRg1L)
+
+More notes in ![Trello](https://trello.com/b/RBNZxvNz/popatl-app)
 
 
 
