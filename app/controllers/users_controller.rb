@@ -71,7 +71,6 @@ class UsersController < ApplicationController
         format.html { redirect_to project_path }
         format.json { render :show, status: :ok, location: @user }
       else
-      # show some error message
     end
   end
 end

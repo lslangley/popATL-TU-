@@ -19,8 +19,10 @@
             <th>Inspiration url</th>
             <th>Proposed location</th>
             <th>Proposed date</th>
+            <th>Created by</th>
+            <th>Show</th>
             <th>Edit</th>
-
+            <th>Delete</th>
       </tr>
     </thead>
 
@@ -31,8 +33,10 @@
             <td> <%=link_to project.inspiration_url, project.inspiration_url %></td>
             <td><%= project.proposed_location %></td>
             <td><%= project.proposed_date %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-
+            <td><%= user.email %></td>
+            <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>

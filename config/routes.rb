@@ -11,7 +11,7 @@ resources :sessions, only:[:new, :create, :destroy]
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/map',  to: 'static_pages#map',            via: 'get'
-  match 'admin', to: 'users#admin', via: 'get'
+  match 'admin', to: 'projects#admin', via: 'get'
   match '/profile',  to: 'users#edit',            via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.

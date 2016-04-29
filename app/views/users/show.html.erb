@@ -1,8 +1,5 @@
 <div class="page-header">
-  <%= link_to edit_user_path(@current_user), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
+
   <h1>Show user</h1>
 </div>
 
@@ -16,13 +13,8 @@
   <dt>Email:</dt>
   <dd><%= @current_user.email %></dd>
 
-  <dt>Password digest:</dt>
-  <dd><%= @current_user.password_digest %></dd>
+  <dt>Contributer since:</dt>
+  <dd><%= @current_user.created_at %></dd>
 
-  <dt>Remember token:</dt>
-  <dd><%= @current_user.remember_token %></dd>
-
-  <dt>Adim?</dt>
-  <dd><%= @current_user.admin %></dd>
 
 </dl>

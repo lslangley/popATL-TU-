@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :signed_in_user
-  before_action :set_todo, only: [:toggle_completed, :show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -54,8 +54,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
+
   def destroy
     @project.destroy
     respond_to do |format|
@@ -64,17 +63,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # def toggle_completed
-  #   @project.completed = !@project.completed
-  #   respond_to do |format|
-  #     if @project.save
-  #       format.html { redirect_to projects_path }
-  #       format.json { render :show, status: :ok, location: @project }
-  #     else
-  #       # show some error message
-  #     end
-  #   end
-  # end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -83,7 +72,7 @@ class ProjectsController < ApplicationController
     end
 
      def verify_correct_user
-       @project = current_user.project.find_by(id: params[:id])
+       @project = current_user.projects.find_by(id: params[:id])
        redirect_to root_url, notice: 'Access Denied!' if @project.nil?
      end
     # Never trust parameters from the scary internet, only allow the white list through.
