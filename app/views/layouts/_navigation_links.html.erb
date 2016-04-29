@@ -8,3 +8,7 @@
 <% end %>
 <li><%= link_to 'Past Projects', map_path %> </li>
 <li><%= link_to 'About', '/about' %></li>
+
+<% if signed_in? && current_user.role == 'Admin' %>
+  <li><%= link_to 'Admin', projects_path %></li>
+<% end %>

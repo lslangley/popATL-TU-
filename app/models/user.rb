@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :projects, dependent: :destroy
 
+  enum role: [:user, :admin]
+
   before_save { email.downcase! }
 
   validates :first_name, :last_name, presence: true
