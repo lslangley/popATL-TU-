@@ -1,5 +1,8 @@
 # popATL Site
-www.popatl.co
+##You can access the site from
+
+1. www.popatl.co
+2. and, www.pure-cove-29158.herokuapp.com
 
 ##Description
 This is a rails app using authentication and crud for users and a projects lists. 
