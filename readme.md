@@ -33,7 +33,7 @@ The site uses a mapbox map to host past projects. For more inspirational interac
 ###DB Mockup
 ![alt text] (https://goo.gl/srRg1L)
 
-More notes in ![Trello](https://trello.com/b/RBNZxvNz/popatl-app)
+More notes in ![alt text] (https://trello.com/b/RBNZxvNz/popatl-app)
 
 
 
